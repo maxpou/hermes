@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Places I've been</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js' charset='utf-8'></script>
+
+<div id='map'></div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoibWF4cG91IiwiYSI6ImNqZjVzM2dxbjBiMmQzM216b2dkbG55YTIifQ.m5y8bKQR5EXE6HHemyVRcw';
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [-6.2603, 53.3498],
+    zoom: 3
+})
+
+const dublin = [-6.2603, 53.3498]
+const losAngeles = [-118.2437, 34.0522]
+const sanFrancisco = [-122.4194, 37.7749]
+const nantes = [-1.5536, 47.2184]
+const berlin = [13.4050, 52.5200]
+const amsterdam = [4.8952, 52.3702]
+const reykjavik = [-21.8174, 64.1265]
+const skaftafell = [-17.0277335, 63.9514895]
+const vik = [-19.006498, 63.4190426]
+const vienna = [16.3738, 48.2082]
+const brussels = [4.3517, 50.8503]
+const copenhaguen = [12.5683, 55.6761]
+const barcelona = [2.1734, 41.3851]
+const rassa = [8.0128065, 45.7684705]
+const roma = [12.4964, 41.9028]
+const boltana = [0.0920924, 42.2643763]
+const paris = [2.3522, 48.8566]
+const belfast = [-5.9301, 54.5973]
+const ankara = [32.8597, 39.9334]
+const london = [0.1278, 51.5074]
+const lyon = [4.8357, 45.7640]
+
+const trips = [
+  {
+    from: nantes,
+    to: dublin
+  }, {
+    from: nantes,
+    to: paris
+  }, {
+    from: nantes,
+    to: ankara
+  }, {
+    from: paris,
+    to: amsterdam
+  }, {
+    from: nantes,
+    to: brussels
+  }, {
+    from: nantes,
+    to: roma
+  }, {
+    from: nantes,
+    to: boltana
+  }, {
+    from: nantes,
+    to: amsterdam
+  }, {
+    from: nantes,
+    to: london
+  }, {
+    from: nantes,
+    to: barcelona
+  }, {
+    from: nantes,
+    to: lyon
+  }, {
+    from: lyon,
+    to: rassa
+  }, {
+    from: dublin,
+    to: reykjavik
+  }, {
+    from: reykjavik,
+    to: vik
+  }, {
+    from: vik,
+    to: skaftafell
+  }, {
+    from: dublin,
+    to: berlin
+  }, {
+    from: dublin,
+    to: belfast
+  }, {
+    from: dublin,
+    to: copenhaguen
+  }, {
+    from: dublin,
+    to: vienna
+  }, {
+    from: dublin,
+    to: losAngeles
+  }, {
+    from: losAngeles,
+    to: sanFrancisco
+  }
+]
+
+const mapBoxfeatures = trips.map(trip => {
+  return {
+    "type": "Feature",
+    "geometry": {
+      "type": "LineString",
+      "coordinates": [
+          trip.from,
+          trip.to,
+      ]
+    }
+  }
+})
+
+const mapBoxRoutes = {
+  "type": "FeatureCollection",
+  "features": mapBoxfeatures
+}
+
+
+map.on('load', function () {
+    map.addSource('route', {
+        "type": "geojson",
+        "data": mapBoxRoutes
+    })
+
+    map.addLayer({
+        "id": "route",
+        "source": "route",
+        "type": "line",
+        "paint": {
+            "line-width": 2,
+            "line-color": "#8A0808"
+        }
+    })
+})
+</script>
+
+</body>
+</html>
