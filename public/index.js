@@ -6,20 +6,17 @@ const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v9',
   center: [-6.2603, 53.3498],
+  pitch: 40,
   zoom: 3
 })
 
+
 const mapBoxfeatures = trips.map(trip => {
-  return {
-    "type": "Feature",
-    "geometry": {
-      "type": "LineString",
-      "coordinates": [
-        trip.from,
-        trip.to,
-      ]
-    }
-  }
+  const start = turf.point(trip.from);
+  const end = turf.point(trip.to);
+  const greatCircle = turf.greatCircle(start, end);
+  console.log(greatCircle);
+  return greatCircle;
 })
 
 const mapBoxRoutes = {
@@ -42,5 +39,6 @@ map.on('load', () => {
       "line-color": "#8A0808"
     }
   })
-  console.log(map);
 })
+
+window.map = map

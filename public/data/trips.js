@@ -3,66 +3,53 @@ import cities from './cities.js'
 export default [
   {
     from: cities.NANTES,
-    to: cities.DUBLIN
+    to: cities.LISBON,
+    dateStart: new Date('2018-10-04'),
+    dateEnd: new Date('2018-10-31'),
   }, {
-    from: cities.NANTES,
-    to: cities.PARIS
-  }, {
-    from: cities.NANTES,
-    to: cities.ANKARA
-  }, {
-    from: cities.PARIS,
-    to: cities.AMSTERDAM
-  }, {
-    from: cities.NANTES,
-    to: cities.BRUSSELS
-  }, {
-    from: cities.NANTES,
-    to: cities.ROMA
-  }, {
-    from: cities.NANTES,
-    to: cities.BOLTANA
-  }, {
-    from: cities.NANTES,
-    to: cities.AMSTERDAM
-  }, {
-    from: cities.NANTES,
-    to: cities.LONDON
-  }, {
-    from: cities.NANTES,
-    to: cities.BARCELONA
-  }, {
-    from: cities.NANTES,
-    to: cities.LYON
+    from: cities.LISBON,
+    to: cities.LYON,
+    dateStart: new Date('2018-10-31'),
+    dateEnd: new Date('2018-11-05'),
   }, {
     from: cities.LYON,
-    to: cities.RASSA
+    to: cities.MADRID,
+    dateStart: new Date('2018-10-05'),
+    dateEnd: new Date('2018-11-11'),
+  }, {
+    from: cities.MADRID,
+    to: cities.PALMA,
+    dateStart: new Date('2018-10-11'),
+    dateEnd: new Date('2018-11-25'),
+  }, {
+    from: cities.PALMA,
+    to: cities.MADRID,
+    dateStart: new Date('2018-11-25'),
+    dateEnd: new Date('2018-12-04'),
+  }, {
+    from: cities.MADRID,
+    to: cities.DUBLIN,
+    dateStart: new Date('2018-12-04'),
+    dateEnd: new Date('2018-12-11'),
   }, {
     from: cities.DUBLIN,
-    to: cities.REYKJAVIK
+    to: cities.PARIS,
+    dateStart: new Date('2018-12-11'),
+    dateEnd: new Date('2018-12-16'),
   }, {
-    from: cities.REYKJAVIK,
-    to: cities.VIK
+    from: cities.PARIS,
+    to: cities.ANGERS,
+    dateStart: new Date('2018-12-11'),
+    dateEnd: new Date('2018-01-09'),
   }, {
-    from: cities.VIK,
-    to: cities.SKAFTAFELL
+    from: cities.ANGERS,
+    to: cities.PARIS,
+    dateStart: new Date('2018-12-11'),
+    dateEnd: new Date('2018-01-09'),
   }, {
-    from: cities.DUBLIN,
-    to: cities.BERLIN
-  }, {
-    from: cities.DUBLIN,
-    to: cities.BELFAST
-  }, {
-    from: cities.DUBLIN,
-    to: cities.COPENHAGUEN
-  }, {
-    from: cities.DUBLIN,
-    to: cities.VIENNA
-  }, {
-    from: cities.DUBLIN,
-    to: cities.LOSANGELES
-  }, {
-    from: cities.LOSANGELES,
-    to: cities.SANFRANCISCO
+    from: cities.PARIS,
+    to: cities.SINGAPORE,
+    dateStart: new Date('2018-12-11'),
+    dateEnd: new Date('2018-01-09'),
   }
 ]
