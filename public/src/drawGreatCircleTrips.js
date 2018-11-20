@@ -2,7 +2,6 @@ export default function drawGreatCircleTrips(map, trips) {
   const mapBoxfeatures = trips.map(trip => {
     const start = turf.point(trip.from);
     const end = turf.point(trip.to);
-    // const mid = turf.midpoint(start, end)
   
     const greatCircle = turf.greatCircle(start, end);
     return greatCircle;

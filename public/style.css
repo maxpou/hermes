@@ -1,11 +1,17 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
   margin:0;
   padding:0;
 }
 
 #map {
-  position:absolute;
-  top:0;
-  bottom:0;
-  width:100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
 }
